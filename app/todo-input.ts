@@ -1,18 +1,19 @@
-import {Component} from 'angular2/core';
-import {TodoService} from './todo-service';
+import {Component}    from 'angular2/core';
+import {TodoService}  from './todo-service';
+import {TodoModel}    from './todo-model';
 
 @Component({
   selector: 'todo-input',
   template: `<div>
     <form (submit)="pushTodo">
-      <input type="text" [(ngModel)]="todoModel"/>
+      <input type="text" [(ngModel)]="todoModel.title"/>
       <button (click)="pushTodo()">Add Todo</button>
-      {{ todoModel }}
+      {{ todoModel.title }}
     </form>
   </div>`
 })
 export class TodoInput {
-  todoModel;
+  todoModel:TodoModel = new TodoModel();
 
   constructor(public todoService: TodoService){
     console.log('todoService', todoService);
@@ -22,5 +23,6 @@ export class TodoInput {
     console.log('this.todoModel', this.todoModel);
     this.todoService.todos.push(this.todoModel);
     console.log('this.todoService', this.todoService);
+    this.todoModel = new TodoModel();
   }
 }
