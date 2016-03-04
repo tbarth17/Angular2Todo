@@ -34,7 +34,7 @@ System.register(['angular2/core', './todo-service'], function(exports_1, context
                 TodoInput = __decorate([
                     core_1.Component({
                         selector: 'todo-input',
-                        template: "<div>\n    <input type=\"text\" [(ngModel)]=\"todoModel\"/>\n    <button (click)=\"pushTodo()\">Add Todo</button>\n    {{ todoModel }}\n  </div>"
+                        template: "<div>\n    <form (submit)=\"pushTodo\">\n      <input type=\"text\" [(ngModel)]=\"todoModel\"/>\n      <button (click)=\"pushTodo()\">Add Todo</button>\n      {{ todoModel }}\n    </form>\n  </div>"
                     }), 
                     __metadata('design:paramtypes', [todo_service_1.TodoService])
                 ], TodoInput);

@@ -4,9 +4,11 @@ import {TodoService} from './todo-service';
 @Component({
   selector: 'todo-input',
   template: `<div>
-    <input type="text" [(ngModel)]="todoModel"/>
-    <button (click)="pushTodo()">Add Todo</button>
-    {{ todoModel }}
+    <form (submit)="pushTodo">
+      <input type="text" [(ngModel)]="todoModel"/>
+      <button (click)="pushTodo()">Add Todo</button>
+      {{ todoModel }}
+    </form>
   </div>`
 })
 export class TodoInput {
