@@ -1,14 +1,14 @@
-import {Component} from 'angular2/core';
-import {TodoService} from './todo-service';
+import {Component}        from 'angular2/core';
+import {TodoService}      from './todo-service';
+import {TodoItemRenderer} from './todo-item-renderer';
 
 @Component({
   selector: 'todo-list',
+  directives: [TodoItemRenderer],
   template: `<div>
               <ul>
                 <li *ngFor="#todo of todoService.todos">
-                  <span [contentEditable]="todo.status == 'completed'">{{ todo.title }}</span>
-                  <button *ngIf='todo.status == "started"' (click)='todo.toggle()'>Edit</button>
-                  <button *ngIf='todo.status == "completed"' (click)='todo.toggle()'>Save</button>
+                  <todo-item-renderer [todo]="todo" ></todo-item-renderer>
                 </li>
               </ul>
             </div>`
