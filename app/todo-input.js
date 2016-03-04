@@ -23,6 +23,7 @@ System.register(['angular2/core', './todo-service'], function(exports_1, context
         execute: function() {
             TodoInput = (function () {
                 function TodoInput(todoService) {
+                    this.todoService = todoService;
                     console.log('todoService', todoService);
                 }
                 TodoInput.prototype.doStuff = function (value) {

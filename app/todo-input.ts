@@ -9,7 +9,7 @@ import {TodoService} from './todo-service';
   </div>`
 })
 export class TodoInput {
-  constructor(todoService: TodoService){
+  constructor(public todoService: TodoService){
     console.log('todoService', todoService);
   }
 
