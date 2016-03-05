@@ -11,30 +11,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var StartedPipe;
+    var StatusSelector;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            StartedPipe = (function () {
-                function StartedPipe() {
+            StatusSelector = (function () {
+                function StatusSelector() {
+                    this.select = new core_1.EventEmitter();
+                    this.statuses = ['started', 'completed'];
                 }
-                StartedPipe.prototype.transform = function (value, _a) {
-                    var status = _a[0];
-                    return value.filter(function (item) { return item.status === status; });
+                StatusSelector.prototype.ngOnInit = function () {
+                    this.select.emit(this.statuses[0]);
                 };
-                StartedPipe = __decorate([
-                    core_1.Pipe({
-                        name: 'started'
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], StatusSelector.prototype, "select", void 0);
+                StatusSelector = __decorate([
+                    core_1.Component({
+                        selector: 'status-selector',
+                        template: "<div>\n              <select #sel (change)=\"select.emit(sel.value)\">\n                <option *ngFor=\"#status of statuses\">\n                  {{ status }}\n                </option>\n              </select>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], StartedPipe);
-                return StartedPipe;
+                ], StatusSelector);
+                return StatusSelector;
             }());
-            exports_1("StartedPipe", StartedPipe);
+            exports_1("StatusSelector", StatusSelector);
         }
     }
 });
-//# sourceMappingURL=started-pipe.js.map
+//# sourceMappingURL=status-selector.js.map
