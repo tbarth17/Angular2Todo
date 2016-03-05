@@ -28,7 +28,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 TodoItemRenderer = __decorate([
                     core_1.Component({
                         selector: 'todo-item-renderer',
-                        template: "<div>\n              <span [contentEditable]=\"todo.status == 'completed'\">{{ todo.title }}</span>\n              <button *ngIf='todo.status == \"started\"' (click)='todo.toggle()'>Edit</button>\n              <button *ngIf='todo.status == \"completed\"' (click)='todo.toggle()'>Save</button>\n            </div>"
+                        template: "<div>\n              <span [ngClass]=\"todo.status\">{{ todo.title }}</span>\n              <button *ngIf='todo.status == \"started\"' (click)='todo.toggle()'>Complete task</button>\n              <button *ngIf='todo.status == \"completed\"' (click)='todo.toggle()'>Open task</button>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TodoItemRenderer);
