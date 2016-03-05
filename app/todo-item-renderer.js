@@ -20,15 +20,20 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             TodoItemRenderer = (function () {
                 function TodoItemRenderer() {
+                    this.toggle = new core_1.EventEmitter();
                 }
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], TodoItemRenderer.prototype, "todo", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], TodoItemRenderer.prototype, "toggle", void 0);
                 TodoItemRenderer = __decorate([
                     core_1.Component({
                         selector: 'todo-item-renderer',
-                        template: "<div>\n              <span [ngClass]=\"todo.status\">{{ todo.title }}</span>\n              <button *ngIf='todo.status == \"started\"' (click)='todo.toggle()'>Complete task</button>\n              <button *ngIf='todo.status == \"completed\"' (click)='todo.toggle()'>Open task</button>\n            </div>"
+                        template: "<div>\n              <span [ngClass]=\"todo.status\">{{ todo.title }}</span>\n              <button *ngIf='todo.status == \"started\"' (click)='toggle.emit(todo)'>Complete task</button>\n              <button *ngIf='todo.status == \"completed\"' (click)='toggle.emit(todo)'>Open task</button>\n            </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TodoItemRenderer);

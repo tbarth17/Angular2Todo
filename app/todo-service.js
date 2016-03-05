@@ -32,6 +32,13 @@ System.register(['angular2/core', './todo-model'], function(exports_1, context_1
                 TodoService.prototype.addTodo = function (todo) {
                     this.todos = this.todos.concat([todo]);
                 };
+                TodoService.prototype.toggleTodo = function (todo) {
+                    todo.toggle();
+                    var i = this.todos.indexOf(todo);
+                    this.todos = this.todos.slice(0, i).concat([
+                        todo
+                    ], this.todos.slice(i + 1));
+                };
                 TodoService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
