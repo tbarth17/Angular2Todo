@@ -32,7 +32,7 @@ System.register(['angular2/core', './todo-service', './todo-model'], function(ex
                 }
                 TodoInput.prototype.pushTodo = function () {
                     console.log('this.todoModel', this.todoModel);
-                    this.todoService.todos.push(this.todoModel);
+                    this.todoService.addTodo(this.todoModel);
                     console.log('this.todoService', this.todoService);
                     this.todoModel = new todo_model_1.TodoModel();
                 };

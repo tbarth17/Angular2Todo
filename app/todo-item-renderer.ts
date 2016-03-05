@@ -10,5 +10,5 @@ import {Component, Input}  from 'angular2/core';
 })
 
 export class TodoItemRenderer {
-  @Input() todo;
+  @Input () todo;
 }

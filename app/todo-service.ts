@@ -8,4 +8,8 @@ export class TodoService {
     new TodoModel('two'),
     new TodoModel('three')
   ];
+
+  addTodo(todo:TodoModel) {
+    this.todos = [...this.todos, todo];
+  }
 }

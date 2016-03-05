@@ -21,7 +21,7 @@ export class TodoInput {
 
   pushTodo () {
     console.log('this.todoModel', this.todoModel);
-    this.todoService.todos.push(this.todoModel);
+    this.todoService.addTodo(this.todoModel);
     console.log('this.todoService', this.todoService);
     this.todoModel = new TodoModel();
   }
